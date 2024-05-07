@@ -15,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.pabloaran.tutorialmod.TutorialMod;
+import net.pabloaran.tutorialmod.block.custom.JumpyBlock;
 import net.pabloaran.tutorialmod.item.ModCreativeModeTab;
 import net.pabloaran.tutorialmod.item.ModItems;
 
@@ -65,6 +66,11 @@ public class ModBlocks {
         registerBlockItem(name, toReturn, tab);
         return toReturn;
     }
+
+    // creating a custom block
+    public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block",
+            () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
 
     private static<T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
                                                                            CreativeModeTab tab){
